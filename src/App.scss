@@ -1,0 +1,155 @@
+
+/* ====================== Layout ====================== */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ====================== Hero ====================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .hero-content {
+    max-width: 768px;
+    margin: 0 auto;
+    text-align: center;
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.5rem;
+      background: var(--muted);
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+      color: var(--muted-foreground);
+      margin-bottom: 3rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+  }
+}
+
+/* ====================== Buttons ====================== */
+.btn {
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &--primary {
+    background: #1a1d21;
+    color: #fff;
+    border: none;
+
+    &:hover {
+      background: #2a2d31;
+    }
+  }
+
+  &--outline {
+    border: 2px solid #ccc;
+    background: transparent;
+    color: var(--foreground);
+
+    &:hover {
+      background: #f3f3f3;
+    }
+
+    .dark & {
+      border-color: #555;
+      &:hover {
+        background: #222;
+      }
+    }
+  }
+}
+
+/* ====================== Sections ====================== */
+.section {
+  padding: 5rem 0;
+
+  &.muted {
+    background: hsla(210, 40%, 96.1%, 0.5);
+
+    .dark & {
+      background: hsla(210, 40%, 96.1%, 0.1);
+    }
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: var(--muted-foreground);
+  }
+}
+
+.steps {
+  display: grid;
+  gap: 2rem;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .step {
+    text-align: center;
+
+    .icon {
+      width: 4rem;
+      height: 4rem;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--primary-foreground);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+  }
+}
