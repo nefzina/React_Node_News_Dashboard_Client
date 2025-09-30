@@ -8,13 +8,20 @@ import { Footer } from "./components/Footer";
 import { fetchNews } from "./api/fetchNews";
 import "./app.scss";
 import type { Article } from "./types/Article";
+import CustomPagination from "./components/CustomPagination";
 
 export type NewsCategory = "react" | "node" | "express";
 
 function App() {
   const [activeCategory, setActiveCategory] = useState<NewsCategory>("react");
   const [articles, setArticles] = useState<Article[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [pageNumber, setPageNumber] = useState<number>(1);
+  const nbArticlesPerPage: number = 15;
+  const visibleArticles: Article[] = articles.slice(
+    (pageNumber - 1) * nbArticlesPerPage,
+    pageNumber * nbArticlesPerPage
+  );
 
   useEffect(() => {
     const loadNews = async () => {
@@ -23,7 +30,6 @@ function App() {
         const data: Article[] = await fetchNews(activeCategory);
         setArticles(data);
         console.log("articles length = ", data);
-        
       } catch (error) {
         console.error("Failed to fetch news:", error);
         setArticles([]);
@@ -49,8 +55,12 @@ function App() {
           onCategoryChange={setActiveCategory}
         />
         <main className="main-content">
-          <NewsGrid articles={articles} loading={loading} />
+          <NewsGrid articles={visibleArticles} loading={loading} />
         </main>
+        <CustomPagination
+          totItems={articles.length}
+          setPageNumber={setPageNumber}
+        />
         <Footer />
       </div>
     </div>

@@ -1,4 +1,4 @@
-import "./header.scss";
+import "./scss/header.scss";
 
 export function Header() {
   return (

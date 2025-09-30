@@ -1,6 +1,6 @@
 import type { Article } from "../types/Article";
 import { NewsCard } from "./NewsCards";
-import "./newsGrid.scss";
+import "./scss/newsGrid.scss";
 
 interface NewsGridProps {
   articles: Article[];
