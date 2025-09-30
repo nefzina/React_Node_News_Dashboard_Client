@@ -7,8 +7,15 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
+# dependencies
+/node_modules
+
+# Vite cache
+.vite/
+
+# env file
 .env
+
 dist
 dist-ssr
 *.local

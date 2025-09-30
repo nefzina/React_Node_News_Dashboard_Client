@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { NewsCategory } from "../App";
-import "./navigation.scss";
+import "./scss/navigation.scss";
 
 interface NavigationProps {
   activeCategory: NewsCategory;
